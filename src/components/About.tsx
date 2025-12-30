@@ -138,7 +138,7 @@ export default function About() {
             <div className="absolute -inset-4 border border-dashed border-slate-200 rounded-2xl pointer-events-none group-hover:scale-[1.02] transition-transform duration-500" />
             <div className="relative aspect-16/10 rounded-xl overflow-hidden shadow-2xl skew-y-1 group-hover:skew-y-0 transition-transform duration-700">
               <Image
-                src="/images/hero/knitting-machine.jpg"
+                src="/images/hero/vy5vjrz1ew9ehipfxzu0.webp"
                 alt="Xưởng sản xuất hiện đại"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

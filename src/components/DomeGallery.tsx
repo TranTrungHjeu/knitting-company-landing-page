@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useCallback } from "react";
 import { useGesture } from "@use-gesture/react";
 
-type ImageItem = string | { src: string; alt?: string };
+type ImageItem = string | { src: string; alt?: string; priority?: boolean };
 
 type DomeGalleryProps = {
   images?: ImageItem[];
@@ -504,6 +504,8 @@ export default function DomeGallery({
                       src={it.src}
                       draggable={false}
                       alt={it.alt}
+                      loading={i < 4 ? "eager" : "lazy"}
+                      fetchPriority={i < 4 ? "high" : "auto"}
                       className="w-full h-full object-cover pointer-events-none"
                       style={{
                         backfaceVisibility: "hidden",

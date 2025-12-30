@@ -13,15 +13,48 @@ import { motion } from "framer-motion";
 import DomeGallery from "./DomeGallery";
 
 // Hero images for gallery (8 images)
+// First 4 images are critical for LCP - they should load immediately
 const heroImages = [
-  { src: "/images/hero/yarn-colorful.jpg", alt: "Len sợi nhiều màu sắc" },
-  { src: "/images/hero/textile-fabric.jpg", alt: "Vải dệt kim cao cấp" },
-  { src: "/images/hero/thread-spools.jpg", alt: "Cuộn chỉ công nghiệp" },
-  { src: "/images/hero/knitting-machine.jpg", alt: "Máy dệt kim hiện đại" },
-  { src: "/images/hero/wool-balls.jpg", alt: "Cuộn len mềm mại" },
-  { src: "/images/hero/sweater-stack.jpg", alt: "Áo len thành phẩm" },
-  { src: "/images/hero/knitting-hands.jpg", alt: "Nghệ nhân đan len" },
-  { src: "/images/hero/knitting-pattern.jpg", alt: "Mẫu dệt kim tinh xảo" },
+  {
+    src: "/images/hero/bm32kjjzvuujwevo4u0i.webp",
+    alt: "Len sợi nhiều màu sắc",
+    priority: true,
+  },
+  {
+    src: "/images/hero/iusr3bcw7txxunuz936a.webp",
+    alt: "Vải dệt kim cao cấp",
+    priority: true,
+  },
+  {
+    src: "/images/hero/qq3qsuvojcm6lj6ktppo.webp",
+    alt: "Cuộn chỉ công nghiệp",
+    priority: true,
+  },
+  {
+    src: "/images/hero/vy5vjrz1ew9ehipfxzu0.webp",
+    alt: "Máy dệt kim hiện đại",
+    priority: true,
+  },
+  {
+    src: "/images/hero/wq79mo82dwk9tpp8zang.webp",
+    alt: "Cuộn len mềm mại",
+    priority: false,
+  },
+  {
+    src: "/images/hero/x8zngplhilwljzqyanbt.webp",
+    alt: "Áo len thành phẩm",
+    priority: false,
+  },
+  {
+    src: "/images/hero/xiqhn0o1cjd5fig6mkyf.webp",
+    alt: "Nghệ nhân đan len",
+    priority: false,
+  },
+  {
+    src: "/images/hero/z71dp1p2jjkcn6asu0iw.webp",
+    alt: "Mẫu dệt kim tinh xảo",
+    priority: false,
+  },
 ];
 
 export default function Hero() {
