@@ -229,21 +229,15 @@ export default function About() {
             {values.map((value, i) => (
               <motion.div
                 key={value.title}
-                className={`group relative p-8 rounded-sm bg-white border border-slate-100 transition-all duration-500 overflow-hidden flex flex-col ${
+                className={`group relative p-8 rounded-sm bg-white border border-slate-100 transition-all duration-500 overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-2 ${
                   i % 2 !== 0 ? "lg:translate-y-8" : ""
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  type: "spring",
-                  damping: 15,
-                  stiffness: 100,
+                  duration: 0.5,
                   delay: i * 0.1,
-                }}
-                whileHover={{
-                  y: i % 2 !== 0 ? 20 : -12,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
                 }}
               >
                 {/* Artisanal Background: Stitched Border Effect */}

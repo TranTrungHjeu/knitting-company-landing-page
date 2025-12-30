@@ -11,7 +11,6 @@ import {
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 
@@ -21,27 +20,6 @@ const NAV_ITEMS = [
   { label: "Sản phẩm", href: "#products", desc: "Tinh hoa dệt kim" },
   { label: "Liên hệ", href: "#contact", desc: "Kết nối trực tiếp" },
   { label: "FAQ", href: "#faq", desc: "Giải đáp thắc mắc" },
-];
-
-const SOCIALS = [
-  {
-    href: "https://zalo.me/0909045668",
-    label: "Zalo",
-    icon: (
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-        <text
-          x="12"
-          y="16"
-          textAnchor="middle"
-          fontSize="10"
-          fill="currentColor"
-        >
-          Z
-        </text>
-      </svg>
-    ),
-  },
 ];
 
 export default function Header() {
@@ -162,7 +140,7 @@ export default function Header() {
                 {/* Manual Close Button - Visible and clickable */}
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-slate-200 text-slate-600 hover:text-primary hover:border-primary transition-all z-[100] focus:outline-none"
+                  className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-slate-200 text-slate-600 hover:text-primary hover:border-primary transition-all z-100 focus:outline-none"
                   aria-label="Đóng menu"
                 >
                   <X className="w-5 h-5" />

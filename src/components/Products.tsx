@@ -70,21 +70,15 @@ export default function Products() {
           {products.map((item, idx) => (
             <motion.div
               key={idx}
-              className={`group relative flex flex-col bg-white border border-slate-100 rounded-sm overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 ${
+              className={`group relative flex flex-col bg-white border border-slate-100 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 ${
                 idx % 2 !== 0 ? "lg:translate-y-12" : ""
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{
-                type: "spring",
-                damping: 15,
-                stiffness: 100,
+                duration: 0.5,
                 delay: idx * 0.1,
-              }}
-              whileHover={{
-                y: idx % 2 !== 0 ? 30 : -10,
-                transition: { type: "spring", stiffness: 400, damping: 10 },
               }}
             >
               {/* Artisanal Background Elements within Card */}

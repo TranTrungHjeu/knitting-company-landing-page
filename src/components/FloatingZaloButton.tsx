@@ -16,8 +16,8 @@ export default function FloatingZaloButton() {
       whileHover={{ y: -5 }}
       whileTap={{ scale: 0.9 }}
     >
-      {/* Pulse effect */}
-      <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20" />
+      {/* Subtle pulse ring - no continuous animation for better performance */}
+      <span className="absolute inset-0 rounded-full bg-blue-500/30 scale-110" />
 
       {/* Button Body - Circular by default, expands on hover */}
       <div className="relative flex items-center bg-[#0068ff] text-white rounded-full shadow-2xl transition-all duration-500 overflow-hidden h-14 border border-blue-400/20 group-hover:px-4">
