@@ -16,7 +16,8 @@ import {
   IconChevronDown,
 } from "@tabler/icons-react";
 
-const contactInfo = [
+// Định nghĩa thông tin liên hệ một cách tường minh
+const CONTACT_DATA = [
   {
     icon: IconMapPin,
     label: "Địa chỉ",
@@ -151,7 +152,7 @@ function ArtisanalSelect({
 
 export default function Contact() {
   return (
-    <section className="w-full py-10 bg-white" id="contact">
+    <section className="w-full py-10 bg-white overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Centered Artisanal Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
@@ -181,7 +182,7 @@ export default function Contact() {
           {/* Left: Contact Info - Asymmetrical Staggered Cards */}
           <div className="lg:col-span-5 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              {contactInfo.map((item, i) => (
+              {CONTACT_DATA.map((item, i) => (
                 <motion.div
                   key={item.label}
                   className="group relative p-6 rounded-sm bg-slate-50 border border-slate-100 overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-primary/5"
@@ -300,7 +301,7 @@ export default function Contact() {
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
                   <div className="w-8 h-px bg-primary" />
-                  Gửi yêu cầu dệt may
+                  Gửi yêu cầu
                 </h3>
 
                 <form className="space-y-6">

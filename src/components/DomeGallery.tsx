@@ -383,6 +383,7 @@ export default function DomeGallery({
       --rot-x: calc((360deg / var(--segments-y)) / 2);
       --item-width: calc(var(--circ) / var(--segments-x));
       --item-height: calc(var(--circ) / var(--segments-y));
+      overflow: hidden;
     }
 
     .sphere-root * { box-sizing: border-box; }

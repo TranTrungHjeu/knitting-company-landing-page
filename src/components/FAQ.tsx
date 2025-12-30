@@ -44,7 +44,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="w-full py-10 bg-slate-50" id="faq">
+    <section className="w-full py-10 bg-slate-50 overflow-hidden" id="faq">
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

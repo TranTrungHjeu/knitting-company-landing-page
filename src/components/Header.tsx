@@ -11,15 +11,16 @@ import {
   SheetDescription,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Trang chủ", href: "#home" },
-  { label: "Giới thiệu", href: "#about" },
-  { label: "Sản phẩm", href: "#products" },
-  { label: "Liên hệ", href: "#contact" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Trang chủ", href: "#home", desc: "Khởi đầu vạn sự" },
+  { label: "Giới thiệu", href: "#about", desc: "Kế thừa di sản" },
+  { label: "Sản phẩm", href: "#products", desc: "Tinh hoa dệt kim" },
+  { label: "Liên hệ", href: "#contact", desc: "Kết nối trực tiếp" },
+  { label: "FAQ", href: "#faq", desc: "Giải đáp thắc mắc" },
 ];
 
 const SOCIALS = [
@@ -77,7 +78,7 @@ export default function Header() {
               alt="Logo Công ty Dệt Kim Liên Việt"
               width={112}
               height={112}
-              className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg focus-visible:scale-110"
+              className="h-24 w-24 md:h-16 md:w-16 lg:h-20 lg:w-20 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg focus-visible:scale-110"
               priority
             />
           </span>
@@ -127,70 +128,115 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-64 p-0 bg-white/95 backdrop-blur-md animate-slide-in"
+              className="w-full sm:w-80 p-0 bg-white border-l-0 overflow-hidden **:data-[slot=sheet-close]:hidden"
             >
               <SheetTitle className="sr-only">Menu Điều Hướng</SheetTitle>
               <SheetDescription className="sr-only">
                 Menu lựa chọn các trang và dịch vụ của Liên Việt
               </SheetDescription>
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between px-4 py-3 border-b">
-                  <Link
-                    href="#home"
-                    className="flex items-center gap-2"
-                    aria-label="Trang chủ"
-                  >
-                    <Image
-                      src="/logo-hearder.svg"
-                      alt="Logo Công ty Dệt Kim Liên Việt"
-                      width={60}
-                      height={60}
-                      className="h-12 w-12 object-contain transition-transform duration-300 hover:scale-110"
-                      priority
-                    />
-                  </Link>
+
+              <div className="flex flex-col h-full relative">
+                {/* Artisanal Background Elements */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                  <div
+                    className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L0 20z' fill='%232c6db0' fill-opacity='1'/%3E%3C/svg%3E")`,
+                      backgroundSize: "10px 10px",
+                    }}
+                  />
+
+                  {/* Vertical Stitched Line */}
+                  <div className="absolute top-0 right-12 w-px h-full border-r border-dashed border-slate-200" />
+
+                  {/* Watermark */}
+                  <div className="absolute bottom-10 -right-4 origin-bottom-right -rotate-90 text-[60px] font-black text-slate-50 opacity-40 whitespace-nowrap leading-none select-none tracking-tighter">
+                    LIEN VIET
+                  </div>
+
+                  {/* Decorative corner stitches */}
+                  <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-dashed border-primary/20" />
+                  <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-dashed border-primary/20" />
                 </div>
-                <nav
-                  className="flex flex-col gap-1 px-4 py-4 font-sans text-base"
-                  aria-label="Mobile navigation"
-                >
-                  {NAV_ITEMS.map((item) => (
+
+                {/* Manual Close Button - Artisanal style */}
+                <SheetClose asChild>
+                  <button
+                    className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md border border-slate-100 text-slate-400 hover:text-primary hover:border-primary transition-all z-50 focus:outline-none pointer-events-auto"
+                    aria-label="Đóng menu"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </SheetClose>
+
+                <div className="flex-1 flex flex-col justify-center px-8 relative z-10">
+                  <div className="mb-12">
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-2 block">
+                      Danh mục
+                    </span>
+                    <div className="w-12 h-1 bg-primary" />
+                  </div>
+
+                  <nav
+                    className="flex flex-col gap-8"
+                    aria-label="Mobile navigation"
+                  >
+                    {NAV_ITEMS.map((item, idx) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex flex-col transition-all duration-300 focus:outline-none"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        <div className="flex items-baseline gap-4">
+                          <span className="text-slate-300 font-mono text-xs tabular-nums group-hover:text-primary transition-colors">
+                            0{idx + 1}
+                          </span>
+                          <span className="font-heading text-3xl font-bold text-slate-900 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300">
+                            {item.label}
+                          </span>
+                        </div>
+                        <span className="ml-8 text-[10px] text-slate-400 uppercase tracking-widest font-semibold mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    ))}
+                  </nav>
+
+                  <div className="mt-16 pt-8 border-t border-dashed border-slate-100">
                     <Link
-                      key={item.href}
-                      href={item.href}
-                      className="px-3 py-2 rounded-md transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 hover:text-primary hover:bg-gray-100"
-                      aria-label={item.label}
+                      href="#contact"
+                      className="inline-flex items-center gap-4 group"
                       onClick={() => setMenuOpen(false)}
                     >
-                      {item.label}
+                      <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-primary transition-colors duration-300">
+                        <Menu className="w-5 h-5" />
+                      </div>
+                      <span className="font-heading text-xl font-bold text-slate-900">
+                        Bắt đầu dự án
+                      </span>
                     </Link>
-                  ))}
-                  <Link
-                    href="#contact"
-                    className="mt-2 px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow-md hover:bg-yellow-400 hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 animate-bounce-in"
-                    aria-label="Liên hệ nhanh"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Liên hệ
-                  </Link>
-                </nav>
-                <div className="flex gap-3 px-4 pb-4 mt-auto">
-                  {SOCIALS.map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      aria-label={s.label}
-                      className="hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                      rel={
-                        s.href.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      target={s.href.startsWith("http") ? "_blank" : undefined}
-                    >
-                      {s.icon}
-                    </a>
-                  ))}
+                  </div>
+                </div>
+
+                <div className="px-8 pb-10 relative z-10 flex items-center justify-between">
+                  <div className="flex gap-4">
+                    {SOCIALS.map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        aria-label={s.label}
+                        className="w-10 h-10 flex items-center justify-center rounded-sm border border-slate-100 text-slate-400 hover:text-primary hover:border-primary transition-all focus:outline-none"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {s.icon}
+                      </a>
+                    ))}
+                  </div>
+                  <div className="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">
+                    Est. 2012
+                  </div>
                 </div>
               </div>
             </SheetContent>

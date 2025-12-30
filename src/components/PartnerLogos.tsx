@@ -13,7 +13,7 @@ const partners = [
 
 export default function PartnerLogos() {
   return (
-    <section className="w-full py-8 bg-slate-50 border-y border-slate-100">
+    <section className="w-full py-8 bg-slate-50 border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-center text-sm text-slate-500 mb-6 font-medium">
           Đối tác tin cậy

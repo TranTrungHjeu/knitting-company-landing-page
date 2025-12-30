@@ -43,7 +43,7 @@ const products = [
 
 export default function Products() {
   return (
-    <section className="w-full py-10 bg-slate-50" id="products">
+    <section className="w-full py-10 bg-slate-50 overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

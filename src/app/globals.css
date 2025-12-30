@@ -121,6 +121,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
   }
   /* Đã dùng Tailwind class font-heading cho heading, không override thủ công nữa */
 }
