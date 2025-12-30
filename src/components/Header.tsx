@@ -5,8 +5,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Trang chủ", href: "#home" },
@@ -18,10 +24,21 @@ const NAV_ITEMS = [
 
 const SOCIALS = [
   {
-    href: "https://zalo.me/",
+    href: "https://zalo.me/0312058608",
     label: "Zalo",
     icon: (
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><text x="12" y="16" textAnchor="middle" fontSize="10" fill="currentColor">Z</text></svg>
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+        <text
+          x="12"
+          y="16"
+          textAnchor="middle"
+          fontSize="10"
+          fill="currentColor"
+        >
+          Z
+        </text>
+      </svg>
     ),
   },
 ];
@@ -41,27 +58,34 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        "sticky top-0 w-full z-50 transition-all duration-300",
         scrolled
           ? "bg-white/90 shadow-xl backdrop-blur border-b border-gray-200"
           : "bg-transparent"
       )}
       aria-label="Header"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-0 gap-1">
-        <Link href="#home" className="flex items-center group" aria-label="Trang chủ">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-2 px-6 gap-1">
+        <Link
+          href="#home"
+          className="flex items-center group"
+          aria-label="Trang chủ"
+        >
           <span className="relative flex items-center">
             <Image
               src="/logo-hearder.svg"
               alt="Logo Công ty Dệt Kim Liên Việt"
               width={112}
               height={112}
-              className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg focus-visible:scale-110"
+              className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg focus-visible:scale-110"
               priority
             />
           </span>
         </Link>
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-2 lg:gap-4 font-sans text-base" aria-label="Main navigation">
+        <nav
+          className="hidden md:flex flex-1 justify-center items-center gap-2 lg:gap-4 font-sans text-base"
+          aria-label="Main navigation"
+        >
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -82,14 +106,13 @@ export default function Header() {
         <div className="hidden md:flex items-center ml-auto">
           <Link
             href="#contact"
-            className="px-4 py-2 rounded-full bg-primary text-white font-semibold shadow-md hover:bg-yellow-400 hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 animate-bounce-in"
+            className="px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow-md hover:bg-yellow-400 hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 animate-bounce-in"
             aria-label="Liên hệ nhanh"
           >
             Liên hệ
           </Link>
         </div>
         {/* Đã bỏ icon Zalo ở header, chỉ giữ nút nổi */}
-
 
         {/* Mobile menu */}
         <div className="md:hidden flex items-center">
@@ -102,10 +125,21 @@ export default function Header() {
                 <Menu className="w-7 h-7 text-primary" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-64 p-0 bg-white/95 backdrop-blur-md animate-slide-in">
+            <SheetContent
+              side="right"
+              className="w-64 p-0 bg-white/95 backdrop-blur-md animate-slide-in"
+            >
+              <SheetTitle className="sr-only">Menu Điều Hướng</SheetTitle>
+              <SheetDescription className="sr-only">
+                Menu lựa chọn các trang và dịch vụ của Liên Việt
+              </SheetDescription>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between px-4 py-3 border-b">
-                  <Link href="#home" className="flex items-center gap-2" aria-label="Trang chủ">
+                  <Link
+                    href="#home"
+                    className="flex items-center gap-2"
+                    aria-label="Trang chủ"
+                  >
                     <Image
                       src="/logo-hearder.svg"
                       alt="Logo Công ty Dệt Kim Liên Việt"
@@ -115,15 +149,11 @@ export default function Header() {
                       priority
                     />
                   </Link>
-                  <button
-                    className="p-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                    onClick={() => setMenuOpen(false)}
-                    aria-label="Đóng menu"
-                  >
-                    <X className="w-6 h-6 text-gray-700" />
-                  </button>
                 </div>
-                <nav className="flex flex-col gap-1 px-4 py-4 font-sans text-base" aria-label="Mobile navigation">
+                <nav
+                  className="flex flex-col gap-1 px-4 py-4 font-sans text-base"
+                  aria-label="Mobile navigation"
+                >
                   {NAV_ITEMS.map((item) => (
                     <Link
                       key={item.href}
@@ -137,7 +167,7 @@ export default function Header() {
                   ))}
                   <Link
                     href="#contact"
-                    className="mt-2 px-4 py-2 rounded-full bg-primary text-white font-semibold shadow-md hover:bg-yellow-400 hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 animate-bounce-in"
+                    className="mt-2 px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow-md hover:bg-yellow-400 hover:text-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 animate-bounce-in"
                     aria-label="Liên hệ nhanh"
                     onClick={() => setMenuOpen(false)}
                   >
@@ -151,8 +181,12 @@ export default function Header() {
                       href={s.href}
                       aria-label={s.label}
                       className="hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                      rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      target={s.href.startsWith('http') ? '_blank' : undefined}
+                      rel={
+                        s.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      target={s.href.startsWith("http") ? "_blank" : undefined}
                     >
                       {s.icon}
                     </a>

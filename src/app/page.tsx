@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Products from "@/components/Products";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
+import FloatingZaloButton from "@/components/FloatingZaloButton";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Contact />
         <FAQ />
       </main>
+      <FloatingZaloButton />
     </>
   );
 }

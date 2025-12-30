@@ -1,25 +1,36 @@
 "use client";
 
-import React from "react";
+import { LogoLoop } from "./LogoLoop";
 
 const partners = [
-  { src: "/partner1.png", alt: "Đối tác 1" },
-  { src: "/partner2.png", alt: "Đối tác 2" },
-  { src: "/partner3.png", alt: "Đối tác 3" },
-  { src: "/partner4.png", alt: "Đối tác 4" },
+  { src: "/images/logos/logo1.svg", alt: "Đối tác 1" },
+  { src: "/images/logos/logo2.svg", alt: "Đối tác 2" },
+  { src: "/images/logos/logo3.svg", alt: "Đối tác 3" },
+  { src: "/images/logos/logo4.svg", alt: "Đối tác 4" },
+  { src: "/images/logos/logo5.svg", alt: "Đối tác 5" },
+  { src: "/images/logos/logo6.svg", alt: "Đối tác 6" },
 ];
 
 export default function PartnerLogos() {
   return (
-    <div className="w-full flex flex-wrap justify-center items-center gap-6 py-4 bg-white/80">
-      {partners.map((p) => (
-        <img
-          key={p.alt}
-          src={p.src}
-          alt={p.alt}
-          className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+    <section className="w-full py-8 bg-slate-50 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="text-center text-sm text-slate-500 mb-6 font-medium">
+          Đối tác tin cậy
+        </p>
+        <LogoLoop
+          logos={partners}
+          speed={80}
+          direction="left"
+          logoHeight={48}
+          gap={64}
+          pauseOnHover={true}
+          fadeOut={true}
+          fadeOutColor="#f8fafc"
+          scaleOnHover={true}
+          ariaLabel="Đối tác của chúng tôi"
         />
-      ))}
-    </div>
+      </div>
+    </section>
   );
 }
