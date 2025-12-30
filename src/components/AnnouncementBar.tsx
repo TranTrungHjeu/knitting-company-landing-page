@@ -53,11 +53,11 @@ export default function AnnouncementBar() {
           <div className="hidden sm:block h-3 w-px bg-slate-700 border-x border-dashed border-slate-600/50" />
 
           <a
-            href="tel:02837500971"
+            href="tel:0909045668"
             className="inline-flex items-center gap-2 hover:text-white transition-colors duration-300"
           >
             <IconPhone className="w-3 h-3 text-primary" stroke={2.5} />
-            <span className="tabular-nums">028 3750 0971</span>
+            <span className="tabular-nums">0909 045 668</span>
           </a>
         </div>
       </div>

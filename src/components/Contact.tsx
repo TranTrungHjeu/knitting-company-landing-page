@@ -27,14 +27,14 @@ const CONTACT_DATA = [
   {
     icon: IconPhone,
     label: "Điện thoại",
-    value: "028 3750 0971",
-    href: "tel:02837500971",
+    value: "0909 045 668",
+    href: "tel:0909045668",
   },
   {
     icon: IconMail,
     label: "Email",
-    value: "contact@lietviet.vn",
-    href: "mailto:contact@lietviet.vn",
+    value: "detkimlienviet@gmail.com",
+    href: "mailto:detkimlienviet@gmail.com",
   },
   {
     icon: IconClock,

@@ -25,7 +25,7 @@ const NAV_ITEMS = [
 
 const SOCIALS = [
   {
-    href: "https://zalo.me/0312058608",
+    href: "https://zalo.me/0909045668",
     label: "Zalo",
     icon: (
       <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
@@ -159,15 +159,14 @@ export default function Header() {
                   <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-dashed border-primary/20" />
                 </div>
 
-                {/* Manual Close Button - Artisanal style */}
-                <SheetClose asChild>
-                  <button
-                    className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-md border border-slate-100 text-slate-400 hover:text-primary hover:border-primary transition-all z-50 focus:outline-none pointer-events-auto"
-                    aria-label="Đóng menu"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </SheetClose>
+                {/* Manual Close Button - Visible and clickable */}
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg border border-slate-200 text-slate-600 hover:text-primary hover:border-primary transition-all z-[100] focus:outline-none"
+                  aria-label="Đóng menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
 
                 <div className="flex-1 flex flex-col justify-center px-8 relative z-10">
                   <div className="mb-12">
@@ -202,40 +201,56 @@ export default function Header() {
                       </Link>
                     ))}
                   </nav>
-
-                  <div className="mt-16 pt-8 border-t border-dashed border-slate-100">
-                    <Link
-                      href="#contact"
-                      className="inline-flex items-center gap-4 group"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-primary transition-colors duration-300">
-                        <Menu className="w-5 h-5" />
-                      </div>
-                      <span className="font-heading text-xl font-bold text-slate-900">
-                        Bắt đầu dự án
-                      </span>
-                    </Link>
-                  </div>
                 </div>
 
-                <div className="px-8 pb-10 relative z-10 flex items-center justify-between">
-                  <div className="flex gap-4">
-                    {SOCIALS.map((s) => (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        aria-label={s.label}
-                        className="w-10 h-10 flex items-center justify-center rounded-sm border border-slate-100 text-slate-400 hover:text-primary hover:border-primary transition-all focus:outline-none"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                <div className="px-8 pb-10 relative z-10">
+                  {/* Prominent Zalo Button */}
+                  <a
+                    href="https://zalo.me/0909045668"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full px-5 py-4 rounded-xl bg-blue-500 text-white font-bold shadow-lg hover:bg-blue-600 transition-all mb-4"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
                       >
-                        {s.icon}
-                      </a>
-                    ))}
-                  </div>
-                  <div className="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">
-                    Est. 2012
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        <text
+                          x="12"
+                          y="16"
+                          textAnchor="middle"
+                          fontSize="10"
+                          fill="currentColor"
+                        >
+                          Z
+                        </text>
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="block text-sm opacity-80">
+                        Chat ngay qua
+                      </span>
+                      <span className="block text-lg">Zalo: 0909 045 668</span>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                      Dệt Kim Liên Việt
+                    </div>
+                    <div className="text-[10px] font-bold text-slate-300 uppercase tracking-tighter">
+                      Est. 2012
+                    </div>
                   </div>
                 </div>
               </div>

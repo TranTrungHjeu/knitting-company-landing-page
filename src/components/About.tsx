@@ -141,6 +141,7 @@ export default function About() {
                 src="/images/hero/knitting-machine.jpg"
                 alt="Xưởng sản xuất hiện đại"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent" />

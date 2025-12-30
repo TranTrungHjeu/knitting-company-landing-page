@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function FloatingZaloButton() {
   return (
     <motion.a
-      href="https://zalo.me/0312058608"
+      href="https://zalo.me/0909045668"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat với chúng tôi qua Zalo"

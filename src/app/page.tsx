@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <AnnouncementBar />
       <Header />
-      <main style={{ scrollPaddingTop: 80 }}>
+      <main style={{ scrollPaddingTop: 80, position: "relative" }}>
         <Hero />
         <PartnerLogos />
         <About />
